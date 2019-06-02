@@ -1,10 +1,10 @@
 'use strict'
 // 課題2 文字列ハッシュ
 
-let text = window.prompt('文字列を入力してください。')
+const text = window.prompt('文字列を入力してください。')
 
 // key:単語, value:カウンタのマップ
-let map = new Map()
+const map = new Map()
 
 text.split(' ').forEach(function(word) {
   if (map.has(word)) {
