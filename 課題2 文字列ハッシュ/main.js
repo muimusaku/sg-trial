@@ -6,7 +6,7 @@ const text = window.prompt('文字列を入力してください。')
 // key:単語, value:カウンタのマップ
 const map = new Map()
 
-text.split(' ').forEach(function(word) {
+text.split(' ').forEach(word => {
   if (map.has(word)) {
     // 存在する場合はカウンタをアップ
     let count = map.get(word)
@@ -19,7 +19,7 @@ text.split(' ').forEach(function(word) {
 
 // 出力メッセージの組み立て
 let message = ''
-map.forEach(function(value, key) {
+map.forEach((value, key) => {
   message += key + ': ' + value + ', '
 })
 
