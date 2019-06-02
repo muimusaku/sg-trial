@@ -4,20 +4,20 @@
 // FizzBuzz計算
 function calcFizzBuzz(number) {
   let result = ''
-  if (0 == number % 3) {
+  if (number % 3 === 0) {
     result = 'Fizz'
   }
-  if (0 == number % 5) {
+  if (number % 5 === 0) {
     result += 'Buzz'
   }
-  if ('' == result) {
+  if (result === '') {
     result = number
   }
   return result
 }
 
-let text = window.prompt('正の整数を入力してください。')
-if (isNaN(text) || 1 > Math.sign(text)) {
+const text = window.prompt('正の整数を入力してください。')
+if (isNaN(text) || Math.sign(text) < 1 || text.indexOf('.') !== -1) {
   // 正の整数でない場合は処理中断
   console.log('不正な値が入力されました。 ' + text)
 } else {
