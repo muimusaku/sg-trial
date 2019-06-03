@@ -17,11 +17,8 @@ text.split(' ').forEach(word => {
   }
 })
 
-// 出力メッセージの組み立て
-let message = ''
-map.forEach((value, key) => {
-  message += key + ': ' + value + ', '
-})
+// 出力用配列作成
+const array = Array.from(map.entries()).map(([k, v]) => k + ': ' + v)
 
 console.log('入力: "' + text + '"')
-console.log('出力: [' + message.slice(0, -2) + ']')
+console.log('出力: [' + array.join(', ') + ']')
