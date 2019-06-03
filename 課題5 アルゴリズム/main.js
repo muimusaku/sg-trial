@@ -5,14 +5,22 @@ const numbers = [20, 31, 42, 13, 5, 38]
 
 // 合計
 function sum(array) {
-  return array.reduce((prev, current) => {
-    return prev + current
-  })
+  return array.reduce((prev, current) => prev + current)
 }
 
 // 平均
 function average(array) {
   return sum(array) / array.length
+}
+
+// 最大
+function max(array) {
+  return array.reduce((prev, current) => Math.max(prev, current))
+}
+
+// 最小
+function min(array) {
+  return array.reduce((prev, current) => Math.min(prev, current))
 }
 
 // バブルソート
@@ -70,8 +78,6 @@ function sortOfQuick(array, left, right) {
 
 // 出力
 function output(sortName, array) {
-  console.log('最大値（' + sortName + '）：' + array[array.length - 1])
-  console.log('最小値（' + sortName + '）：' + array[0])
   console.log('小さい順（' + sortName + '）：' + array.join(', '))
   // 逆順に並べ替え
   const reverse = new Array(array.length)
@@ -83,6 +89,8 @@ function output(sortName, array) {
 
 console.log('合計：' + sum(numbers))
 console.log('平均：' + average(numbers))
+console.log('最大値：' + max(numbers))
+console.log('最小値：' + min(numbers))
 
 // バブルソート
 const bubble = numbers
