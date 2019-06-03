@@ -21,9 +21,9 @@ if (isNaN(text) || Math.sign(text) < 1 || text.indexOf('.') !== -1) {
   // 正の整数でない場合は処理中断
   console.log('不正な値が入力されました。 ' + text)
 } else {
-  let message = ''
-  for (let i = 1; i <= text; i++) {
-    message += calcFizzBuzz(i) + ', '
-  }
-  console.log(message.slice(0, -2))
+  // Array.fromで 0 ～ 入力値 - 1 までの配列が作成される
+  const array = Array.from({ length: text }, (v, k) => {
+    return calcFizzBuzz(k + 1)
+  })
+  console.log(array.join(', '))
 }
