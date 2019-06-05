@@ -17,30 +17,28 @@ function checkParameter(value) {
   return true
 }
 
-function process(data) {
-  console.log(data.message)
-  let answer = window.prompt(data.message)
+let count = 0
+
+function process(message) {
+  console.log(message)
+  const answer = window.prompt(message)
   if (!checkParameter(answer)) {
     // 0-100の範囲内でない場合は処理中断
     console.log('不正な値が入力されました。 ' + answer)
-    data.flag = false
-    return data
+    return 0
   }
-  answer = parseInt(answer)
+  count++
   console.log(answer)
-  data.count++
-
-  if (correct === answer) {
-    console.log('正解！・・・' + data.count + '回目であてました')
-    data.flag = false
-    return data
-  }
-
-  data.message = correct > answer ? 'もっと上' : 'もっと下'
-  return data
+  return correct - answer
 }
 
-let result = { message: '0-100で数字を当てて', flag: true, count: 0 }
-while (result.flag) {
-  result = process(result)
+let message = '0-100で数字を当てて'
+let result = 1
+while (result !== 0) {
+  result = process(message)
+  if (result === 0) {
+    console.log('正解！・・・' + count + '回目であてました')
+  } else {
+    message = result > 0 ? 'もっと上' : 'もっと下'
+  }
 }
