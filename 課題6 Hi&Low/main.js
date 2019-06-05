@@ -19,7 +19,8 @@ function checkParameter(value) {
 
 let count = 0
 
-function process(message) {
+// 回答入力
+function inputAnswer(message) {
   console.log(message)
   const answer = window.prompt(message)
   if (!checkParameter(answer)) {
@@ -35,7 +36,7 @@ function process(message) {
 let message = '0-100で数字を当てて'
 let result = 1
 while (result !== 0) {
-  result = process(message)
+  result = inputAnswer(message)
   if (result === 0) {
     console.log('正解！・・・' + count + '回目であてました')
   } else {
